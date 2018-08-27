@@ -1,0 +1,31 @@
+---
+# defaults file for alpine-setup
+
+alpine_setup_keymapopts: us us
+
+alpine_setup_hostname: matchbox
+alpine_setup_domain: nj.drewfus.org
+alpine_setup_upstream_dns: 8.8.8.8
+
+alpine_setup_hostnameopts: '-n {{alpine_setup_hostname}}'
+
+alpine_setup_interfacesopts: >+
+  auto lo
+  iface lo inet loopback
+  auto eth0
+  iface eth0 inet dhcp
+      hostname {{alpine_setup_hostname}}
+
+alpine_setup_dnsopts: '-d {{alpine_setup_domain}} {{alpine_setup_upstream_dns}}'
+
+alpine_setup_timezoneopts: -z UTC
+
+# http/ftp proxy options
+#alpine_setup_proxyopts: http://webproxy:8080
+
+alpine_setup_apkreposopts: -r
+alpine_setup_sshdopts: -c openssh
+alpine_setup_ntpopts: -c openntpd
+alpine_setup_diskopts: -m data /dev/sda
+alpine_setup_lbuopts: /media/sdb1
+alpine_setup_apkcacheopts: /media/sdb1/cache

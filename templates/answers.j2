@@ -1,0 +1,39 @@
+# Example answer file for setup-alpine script
+# If you don't want to use a certain option, then comment it out
+
+# Use US layout with US variant
+KEYMAPOPTS="{{alpine_setup_keymapopts}}"
+
+# Set hostname to alpine-test
+HOSTNAMEOPTS="{{alpine_setup_hostnameopts}}"
+
+# Contents of /etc/network/interfaces
+INTERFACESOPTS="{{alpine_setup_interfacesopts}}"
+
+# Search domain of example.com, Google public nameserver
+DNSOPTS="{{alpine_setup_dnsopts}}"
+
+# Set timezone to UTC
+TIMEZONEOPTS="{{alpine_setup_timezoneopts}}"
+
+# set http/ftp proxy
+{% if alpine_setup_proxyopts is defined %}
+  PROXYOPTS="{{alpine_setup_proxyopts}}"
+{% endif %}
+
+# Add a random mirror
+APKREPOSOPTS="{{alpine_setup_apkreposopts}}"
+
+# Install Openssh
+SSHDOPTS="{{alpine_setup_sshdopts}}"
+
+# Use openntpd
+NTPOPTS="{{alpine_setup_ntpopts}}"
+
+# Use /dev/sda as a data disk
+DISKOPTS="{{alpine_setup_diskopts}}"
+
+# Setup in /media/sdb1
+LBUOPTS="{{alpine_setup_lbuopts}}"
+APKCACHEOPTS="{{alpine_setup_apkcacheopts}}"
+
